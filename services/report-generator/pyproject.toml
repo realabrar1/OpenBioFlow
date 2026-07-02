@@ -1,0 +1,30 @@
+[project]
+name = "report-generator"
+version = "1.0.0"
+description = "Report Generator Service utilizing GSEApy and document builders"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.1",
+    "gseapy>=1.1.2",
+    "pandas>=2.2.2",
+    "jinja2>=3.1.4",
+    "reportlab>=4.2.1",
+    "pydantic>=2.7.4",
+    "pydantic-settings>=2.3.3",
+    "structlog>=24.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.2",
+    "ruff>=0.4.9",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N"]

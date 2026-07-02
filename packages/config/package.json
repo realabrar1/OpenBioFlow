@@ -1,0 +1,6 @@
+{
+  "name": "@openbioflow/config",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared configurations for ESLint, Prettier, and TypeScript in the OpenBioFlow monorepo"
+}

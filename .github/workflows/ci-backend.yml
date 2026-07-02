@@ -1,0 +1,57 @@
+name: CI - Backend & Python Services
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/api/**"
+      - "services/**"
+      - ".github/workflows/ci-backend.yml"
+
+jobs:
+  validate-python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service:
+          - apps/api
+          - services/ai-orchestrator
+          - services/execution-engine
+          - services/literature-service
+          - services/report-generator
+          - services/visualization-engine
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Configure Path for uv
+        run: echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install Dependencies
+        run: |
+          cd ${{ matrix.service }}
+          uv pip install --system -e ".[dev]"
+
+      - name: Lint and Format Verification (Ruff)
+        run: |
+          cd ${{ matrix.service }}
+          ruff check .
+          ruff format --check .
+
+      - name: Run Test Suite (pytest)
+        run: |
+          cd ${{ matrix.service }}
+          # Check if tests directory exists before running pytest
+          if [ -d "tests" ]; then
+            pytest
+          else
+            echo "No tests directory found, skipping pytest suite."
+          fi

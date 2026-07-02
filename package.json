@@ -1,0 +1,21 @@
+{
+  "name": "openbioflow-ai-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enterprise Scalable Platform for Bioinformatics Orchestrated by AI",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.2",
+    "turbo": "^2.0.4"
+  },
+  "packageManager": "pnpm@9.4.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

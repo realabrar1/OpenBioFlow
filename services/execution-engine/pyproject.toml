@@ -1,0 +1,31 @@
+[project]
+name = "execution-engine"
+version = "1.0.0"
+description = "Bioinformatics Execution Engine with Scanpy and AnnData"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.1",
+    "scanpy>=1.10.1",
+    "anndata>=0.10.7",
+    "pandas>=2.2.2",
+    "numpy>=1.26.4",
+    "scipy>=1.13.1",
+    "pydantic>=2.7.4",
+    "pydantic-settings>=2.3.3",
+    "structlog>=24.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.2",
+    "ruff>=0.4.9",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N"]

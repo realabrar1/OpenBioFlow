@@ -1,0 +1,37 @@
+# Dependencies
+**/node_modules/
+**/.pnpm-store/
+**/.venv/
+**/venv/
+
+# Build caches
+**/.next/
+**/out/
+**/dist/
+**/build/
+**/.turbo/
+
+# Python cache
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+
+# Local configuration and git
+.git/
+.github/
+.vscode/
+.idea/
+.terraform/
+**/*.tfstate*
+**/infrastructure/kubernetes/
+
+# Documentation
+docs/
+*.md
+
+# Logs and temp files
+**/*.log
+**/.env*
+!**/.env.example
