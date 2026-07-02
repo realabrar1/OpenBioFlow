@@ -51,7 +51,7 @@ Before running the platform locally, ensure you have installed:
 
 ### 1. Clone & Initialize Environment
 ```bash
-git clone https://github.com/realabrar1/openbioflow-ai.git
+git clone https://github.com/realabrar1/openbioflow
 cd openbioflow-ai
 ```
 
